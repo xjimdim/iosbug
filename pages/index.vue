@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col">
     <h2>INDEX PAGE</h2>
-    <NuxtLink
+    <a
       class="text-blue font-semibold cursor-pointer underline mt-4"
-      href="/iosbug/second"
+      href="/iosbug/second/"
     >
       click here to go to second page >
-    </NuxtLink>
+    </a>
   </div>
 </template>
 
