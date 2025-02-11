@@ -33,7 +33,7 @@ export default defineComponent({
       await router.replace({name: '__second', query: {sp: 150}})
     }
     const goToPage = async () => {
-      await replaceRoute()
+      // await replaceRoute()
       router.push({name: '__third'})
     }
 
