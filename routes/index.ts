@@ -3,17 +3,17 @@
 export default [
   {
     name: '__index',
-    path: '/iosbug/',
+    path: '/',
     component: async () => await import('~/pages/index.vue')
   },
   {
     name: '__second',
-    path: '/iosbug/second',
+    path: '/second',
     component: async () => await import('~/pages/second.vue')
   },
   {
     name: '__third',
-    path: '/iosbug/third',
+    path: '/third',
     component: async () => await import('~/pages/third.vue')
   },
 
