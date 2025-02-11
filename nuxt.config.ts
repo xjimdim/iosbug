@@ -12,7 +12,11 @@ export default {
 
     ssr: false,
 
-    // In Nuxt 2, modules are split into `buildModules`
+    generate: {
+        routes: [
+          '/'
+        ]
+      },
     buildModules: [
         [
             '@nuxtjs/router',
