@@ -3,7 +3,7 @@
     <h2>INDEX PAGE</h2>
     <NuxtLink
       class="text-blue font-semibold cursor-pointer underline mt-4"
-      :href="router.resolve({ name: '__second' }).href"
+      :to="{ name: '__second' }"
     >
       click here to go to second page >
     </NuxtLink>
