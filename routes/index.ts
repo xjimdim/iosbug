@@ -8,12 +8,12 @@ export default [
   },
   {
     name: '__second',
-    path: '/second',
+    path: '/iosbug/second',
     component: async () => await import('~/pages/second.vue')
   },
   {
     name: '__third',
-    path: '/third',
+    path: '/iosbug/third',
     component: async () => await import('~/pages/third.vue')
   },
 
