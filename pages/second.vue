@@ -25,7 +25,6 @@
 
 <script setup lang="ts">
 const router = useRouter();
-const route = useRoute();
 const replaceRoute = async() => {
   await router.replace({ name: '__second', query: { sp: 150 } });
 };
