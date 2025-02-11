@@ -26,10 +26,11 @@
 <script setup lang="ts">
 const router = useRouter();
 const route = useRoute();
-const replaceRoute = () => {
-  router.replace({ name: '__second', query: { sp: 150 } });
+const replaceRoute = async() => {
+  await router.replace({ name: '__second', query: { sp: 150 } });
 };
-const goToPage = () => {
+const goToPage = async() => {
+  await replaceRoute()
   router.push({ name: '__third' });
 };
 
