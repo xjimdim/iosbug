@@ -16,7 +16,6 @@ export default [
     path: '/third',
     component: async () => await import('~/pages/third.vue')
   },
-
 ]
 
 

@@ -1,18 +1,34 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
-  app: {
+// nuxt.config.js for Nuxt 2
+export default {
     head: {
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+        meta: [
+            {charset: 'utf-8'},
+            {name: 'viewport', content: 'width=device-width, initial-scale=1'}
+        ]
     },
-  },
-  components: [
-    {
-      path: '~/components/',
-      pathPrefix: false,
+
+    // Auto-import components (Nuxt 2 supports this natively)
+    components: true,
+
+    ssr: false,
+
+    // In Nuxt 2, modules are split into `buildModules`
+    buildModules: [
+        [
+            '@nuxtjs/router',
+            {
+                path: 'router',
+                fileName: 'router.js'
+            }
+        ],
+        ['@nuxtjs/composition-api/module'],
+        ['@nuxtjs/tailwindcss']
+    ],
+
+    target: 'static', // ✅ Ensure Nuxt 2 is set for static deployment
+    router: {
+        base: '/iosbug/' // ✅ Set this to match your GitHub repo name if needed
     },
-  ],
-  ssr: false,
-  modules: ['@nuxtjs/tailwindcss'],
-  compatibilityDate: '2024-08-14',
-});
+
+    compatibilityDate: '2025-02-11'
+};

@@ -14,10 +14,33 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const goBack = ()=>{
-  if(process.client){
-    window.history.back()
+
+<script lang="ts">
+import {defineComponent, useRouter} from "@nuxtjs/composition-api";
+
+export default defineComponent({
+
+  setup() {
+    const router = useRouter()
+    const replaceRoute = async () => {
+      await router.replace({name: '__second', query: {sp: 150}})
+    }
+    const goToPage = async () => {
+      await replaceRoute()
+      router.push({name: '__third'})
+    }
+
+    const goBack = () => {
+      if (process.client) {
+        window.history.back()
+      }
+    }
+
+    return {
+      goToPage,
+      goBack,
+      replaceRoute
+    }
   }
-}
+})
 </script>

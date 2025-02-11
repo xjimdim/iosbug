@@ -3,39 +3,51 @@
     <h2>SECOND PAGE</h2>
 
     <div
-      class="text-blue font-semibold cursor-pointer underline mt-4"
-      @click="replaceRoute"
+        class="text-blue font-semibold cursor-pointer underline mt-4"
+        @click="replaceRoute"
     >
       click here to go to replace route with some query
     </div>
     <div
-      class="text-blue font-semibold cursor-pointer underline mt-4"
-      @click="goToPage"
+        class="text-blue font-semibold cursor-pointer underline mt-4"
+        @click="goToPage"
     >
       click here to go to third page programmatically
     </div>
     <div
-      class="text-blue font-semibold cursor-pointer underline mt-4"
-      @click="goBack"
+        class="text-blue font-semibold cursor-pointer underline mt-4"
+        @click="goBack"
     >
       Click here to trigger history.back()
     </div>
   </div>
 </template>
+<script lang="ts">
+import {defineComponent, useRouter} from "@nuxtjs/composition-api";
 
-<script setup lang="ts">
-const router = useRouter();
-const replaceRoute = async() => {
-  await router.replace({ name: '__second', query: { sp: 150 } });
-};
-const goToPage = async() => {
-  await replaceRoute()
-  router.push({ name: '__third' });
-};
+export default defineComponent({
 
-const goBack = () => {
-  if (process.client) {
-    window.history.back();
+  setup() {
+    const router = useRouter()
+    const replaceRoute = async () => {
+      await router.replace({name: '__second', query: {sp: 150}})
+    }
+    const goToPage = async () => {
+      await replaceRoute()
+      router.push({name: '__third'})
+    }
+
+    const goBack = () => {
+      if (process.client) {
+        window.history.back()
+      }
+    }
+
+    return {
+      goToPage,
+      goBack,
+      replaceRoute
+    }
   }
-};
+})
 </script>
