@@ -14,7 +14,9 @@ export default {
 
     generate: {
         routes: [
-          '/'
+            '/',
+            '/second/',
+            '/third/'
         ]
       },
     buildModules: [
