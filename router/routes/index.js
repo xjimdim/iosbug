@@ -16,7 +16,7 @@ export default [
     },
     {
         name: '__second',
-        path: '/second',
+        path: '/second/',
         component: () =>
             interopDefault(
                 import(
@@ -26,7 +26,7 @@ export default [
     },
     {
         name: '__third',
-        path: '/third',
+        path: '/third/',
         component: () =>
             interopDefault(
                 import(
