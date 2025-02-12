@@ -3,6 +3,7 @@
     <h2>SECOND PAGE</h2>
 
     <div
+        v-if="false"
         class="text-blue font-semibold cursor-pointer underline mt-4"
         @click="replaceRoute"
     >
@@ -33,6 +34,7 @@ export default defineComponent({
       await router.replace({name: '__second', query: {sp: 150}})
     }
     const goToPage = async () => {
+      await replaceRoute()
       // await replaceRoute()
       router.push({name: '__third'})
     }
