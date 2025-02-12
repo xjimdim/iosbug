@@ -30,8 +30,38 @@ export default defineComponent({
 
   setup() {
     const router = useRouter()
+
+    const setUrlParam = (url, paramName, paramValue) => {
+      try {
+        // remove the hash part before operating on the url
+        const i = url.indexOf('#')
+        const hash = i === -1 ? '' : url.substr(i)
+        url = i === -1 ? url : url.substr(0, i)
+
+        const re = new RegExp('([?&])' + paramName + '=.*?(&|$)', 'i')
+        const separator = url.includes('?') ? '&' : '?'
+        if (url.match(re)) {
+          url = url.replace(re, '$1' + paramName + '=' + paramValue + '$2')
+        } else {
+          url = url + separator + paramName + '=' + paramValue
+        }
+        return url + hash // finally append the hash as well
+      } catch (e) {
+        return null
+      }
+    }
     const replaceRoute = async () => {
-      await router.replace({name: '__second', query: {sp: 150}})
+      const replacedLocation = setUrlParam(
+          window.location.pathname + window.location.search,
+          'sp',
+          150
+      )
+      window.history.replaceState(
+          {isInSearchPage: false, resetSearchState: true},
+          document.title || '',
+          replacedLocation
+      )
+
     }
     const goToPage = async () => {
       await replaceRoute()
